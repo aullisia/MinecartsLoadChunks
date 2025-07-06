@@ -4,6 +4,7 @@
   "package": "D7lan.minecartsloadchunks.mixin",
   "compatibilityLevel": "JAVA_21",
   "mixins": [
+    "AbstractMinecartEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1

@@ -13,6 +13,7 @@ import java.util.List;
 
 public class ModConfig {
     public boolean loadChunks; // Whether the mod in entirety is active. set to false in order to disable mod.
+    public boolean onlyLoadTaggedMinecarts;
     public boolean spamConsole;
     public boolean alwaysLoad; // If true, minecarts always load the chunks they're in, no matter the speed.
     // ^^ Remember that chest_minecarts spawn naturally and will cause chunk loading. Consider disabling chest_minecarts or not activating "always loading" at all.
@@ -37,6 +38,7 @@ public class ModConfig {
     public ModConfig() {
         // Set default values for the configuration options.
         this.loadChunks = true;
+        this.onlyLoadTaggedMinecarts = false;
         this.spamConsole = false;
         this.alwaysLoad = false;
         this.smartLoad = false;          // experimental

@@ -1,15 +1,46 @@
-# Minecraft-related
-run/
-build/
+# gradle
+
 .gradle/
-gradle/
+build/
+out/
+classes/
 
-# IDE-related
+# eclipse
+
+*.launch
+
+# idea
+
 .idea/
+*.iml
+*.ipr
+*.iws
 
-# Logs and temporary files
-*.log
+# vscode
 
-# Other system-specific
-.DS_Store
-Thumbs.db
+.settings/
+.vscode/
+bin/
+.classpath
+.project
+
+# macos
+
+*.DS_Store
+
+# fabric
+
+run/
+
+# java
+
+hs_err_*.log
+replay_*.log
+*.hprof
+*.jfr
+
+# direnv
+/.direnv/
+
+# env
+/.env

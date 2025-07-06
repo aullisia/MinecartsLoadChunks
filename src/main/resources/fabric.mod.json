@@ -10,7 +10,7 @@
   },
   "license": "MIT",
   "icon": "assets/minecartsloadchunks/icon.png",
-  "environment": "*",
+  "environment": "server",
   "entrypoints": {
     "client": [
       "D7lan.minecartsloadchunks.client.MinecartsloadchunksClient"

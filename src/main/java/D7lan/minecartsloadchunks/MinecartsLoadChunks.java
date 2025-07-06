@@ -1,5 +1,6 @@
 package D7lan.minecartsloadchunks;
 
+import D7lan.minecartsloadchunks.util.LoadsChunksAccessor;
 import D7lan.minecartsloadchunks.world.WorldChunksManager;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerTickEvents;
@@ -24,6 +25,8 @@ public class MinecartsLoadChunks implements ModInitializer {
         CONFIG = ModConfig.loadConfig();
         MINECART_TYPES = getConfig().getMinecartTypes();
 
+        MinecartsLoadChunksCommands.register();
+
         if (getConfig().loadChunks) {
             ServerTickEvents.START_SERVER_TICK.register(this::onServerTick);
         }
@@ -37,6 +40,9 @@ public class MinecartsLoadChunks implements ModInitializer {
 
             for (EntityType<?> type : MINECART_TYPES) {
                 for (AbstractMinecartEntity minecart : world.getEntitiesByType((EntityType<AbstractMinecartEntity>) type, e -> true)) {
+                    if (getConfig().onlyLoadTaggedMinecarts && !(minecart instanceof LoadsChunksAccessor accessor && accessor.getLoadsChunks())) {
+                        continue;
+                    }
                     if (!getConfig().alwaysLoad) {
                         boolean isMoving = minecart.getVelocity().lengthSquared() > 1e-6;
                         if (isMoving) MINECART_LAST_MOVED.put(minecart.getUuid(), currentTick);
